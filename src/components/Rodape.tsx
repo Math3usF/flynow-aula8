@@ -5,7 +5,7 @@ export function Rodape() {
         <div>
           <p className="rodape-marca">FlyNow</p>
           <p className="rodape-texto">
-            Projeto da Aula 8 — DOM · HOF · Axios · useEffect.
+            Projeto das Aulas 8 a 10 — DOM · HOF · Axios · Router · Context · CRUD.
             <br />
             Laboratório de Programação Front End · Engenharia de Software · 2026.2
           </p>

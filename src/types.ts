@@ -29,6 +29,24 @@ export type FiltroRegiao = 'todas' | Regiao
 
 export type Ordem = 'preco-asc' | 'preco-desc' | 'nota' | 'nome'
 
+/** Usuário devolvido por /auth/login e /auth/me (DummyJSON) */
+export type Usuario = {
+  id: number
+  username: string
+  email: string
+  firstName: string
+  lastName: string
+  image: string
+}
+
+/** Item de "Meus desejos": o recurso /todos da API de treino */
+export type Desejo = {
+  id: number
+  todo: string
+  completed: boolean
+  userId: number
+}
+
 export type Requisicao = {
   id: number
   metodo: string

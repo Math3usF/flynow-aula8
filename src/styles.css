@@ -1940,3 +1940,379 @@ code {
     scroll-behavior: auto !important;
   }
 }
+
+/* ============================================================
+   AULAS 9 e 10 — rotas, login, meus desejos e responsivo
+   ============================================================ */
+
+/* ---------- header: NavLink + usuário logado ---------- */
+.nav a.nav-link.ativo,
+.nav a.nav-link.ativo:hover {
+  background: var(--marinho);
+  color: #fff8ee;
+}
+
+.nav-ancoras {
+  display: flex;
+  gap: 2px;
+  margin-left: 8px;
+  padding-left: 10px;
+  border-left: 1px solid var(--linha-2);
+}
+
+.nav-ancoras a {
+  font-weight: 500;
+  color: var(--cinza);
+}
+
+.topo-usuario {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.topo-ola {
+  font-size: 14px;
+  color: var(--tinta-2);
+  white-space: nowrap;
+}
+
+.topo-ola strong {
+  color: var(--tinta);
+}
+
+.btn-sair {
+  padding: 10px 16px;
+  font-size: 13px;
+}
+
+/* ---------- tela de login (rota pública) ---------- */
+.tela-login,
+.tela-404 {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background:
+    radial-gradient(1100px 520px at 12% -10%, rgba(221, 107, 77, 0.18), transparent 60%),
+    radial-gradient(900px 520px at 110% 8%, rgba(12, 39, 64, 0.16), transparent 55%),
+    var(--areia);
+}
+
+.login-card {
+  width: min(100%, 420px);
+  background: var(--papel);
+  border: 1px solid var(--linha);
+  border-radius: var(--r);
+  padding: 32px;
+  box-shadow: var(--sombra);
+}
+
+.login-marca {
+  margin: 0 0 24px;
+}
+
+.login-titulo {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: clamp(26px, 5vw, 34px);
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+.login-sub {
+  margin-top: 8px;
+  color: var(--tinta-2);
+  font-size: 15px;
+}
+
+.login-form {
+  display: grid;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.campo {
+  display: grid;
+  gap: 6px;
+}
+
+.campo label {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--cinza);
+}
+
+.campo input,
+.form-desejo input {
+  width: 100%;
+  min-height: 46px;
+  padding: 10px 14px;
+  border: 1px solid var(--linha-2);
+  border-radius: 12px;
+  background: #fff;
+  /* 16px evita o zoom automático do iOS ao focar o campo */
+  font-size: 16px;
+  transition: 0.18s;
+}
+
+.campo input:focus,
+.form-desejo input:focus {
+  border-color: var(--marinho);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(12, 39, 64, 0.12);
+}
+
+.campo input[aria-invalid='true'],
+.form-desejo input[aria-invalid='true'] {
+  border-color: var(--coral-2);
+}
+
+.aviso {
+  font-size: 14px;
+  padding: 10px 12px;
+  border-radius: 10px;
+}
+
+.aviso-erro {
+  background: var(--coral-suave);
+  border: 1px solid rgba(196, 85, 58, 0.35);
+  color: var(--coral-2);
+  font-weight: 600;
+}
+
+.login-dica {
+  margin-top: 18px;
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: var(--cinza);
+  text-align: center;
+  display: grid;
+  gap: 6px;
+}
+
+.login-dica p {
+  margin: 0;
+}
+
+.login-dica strong {
+  color: var(--marinho);
+}
+
+/* ---------- 404 e "verificando sessão" ---------- */
+.tela-404-caixa {
+  width: min(100%, 460px);
+  text-align: center;
+  background: var(--papel);
+  border: 1px solid var(--linha);
+  border-radius: var(--r);
+  padding: 40px 32px;
+  box-shadow: var(--sombra);
+}
+
+.tela-404-simbolo {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 22px;
+  border-radius: 16px;
+}
+
+.tela-404-caixa .btn {
+  margin-top: 22px;
+}
+
+.tela-espera {
+  min-height: 60vh;
+  display: grid;
+  place-items: center;
+  color: var(--tinta-2);
+  font-weight: 600;
+}
+
+/* ---------- meus desejos (CRUD) ---------- */
+.tela-desejos {
+  padding-top: 48px;
+}
+
+.form-desejo {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.form-desejo input {
+  flex: 1 1 16rem;
+}
+
+.form-desejo .btn {
+  min-height: 46px;
+  padding-inline: 22px;
+}
+
+.form-desejo .btn svg {
+  width: 16px;
+  height: 16px;
+}
+
+.tela-desejos .aviso {
+  margin-top: 12px;
+}
+
+.desejos-status {
+  margin-top: 28px;
+  color: var(--cinza);
+  font-weight: 600;
+}
+
+.desejos-resumo {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin: 26px 0 10px;
+  font-size: 12.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--cinza);
+}
+
+.desejos-resumo strong {
+  color: var(--tinta);
+  font-size: 15px;
+}
+
+.desejos {
+  display: grid;
+  gap: 10px;
+}
+
+.desejo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: var(--papel);
+  border: 1px solid var(--linha);
+  border-radius: 14px;
+  padding: 12px 14px;
+  transition: 0.18s;
+}
+
+.desejo:hover {
+  border-color: var(--linha-2);
+  box-shadow: var(--sombra-s);
+}
+
+.desejo-marcar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1 1 12rem;
+  min-height: 44px;
+  cursor: pointer;
+}
+
+.desejo-marcar input {
+  width: 20px;
+  height: 20px;
+  flex: none;
+  accent-color: var(--verde);
+  cursor: pointer;
+}
+
+.desejo-texto {
+  font-size: 15.5px;
+}
+
+.desejo.feito .desejo-texto {
+  text-decoration: line-through;
+  color: var(--cinza);
+}
+
+.desejo-excluir {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;
+  padding: 8px 12px;
+  border: 1px solid var(--linha-2);
+  border-radius: 10px;
+  background: transparent;
+  color: var(--tinta-2);
+  font-size: 13px;
+  font-weight: 700;
+  transition: 0.18s;
+}
+
+.desejo-excluir svg {
+  width: 15px;
+  height: 15px;
+}
+
+.desejo-excluir:hover:not(:disabled) {
+  border-color: var(--coral-2);
+  background: var(--coral-suave);
+  color: var(--coral-2);
+}
+
+.desejo-excluir:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ---------- responsivo das telas novas ---------- */
+@media (max-width: 900px) {
+  /* o menu de rotas continua aparecendo no celular (o CSS antigo o escondia) */
+  .nav {
+    display: flex;
+  }
+
+  .nav-ancoras {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .topo-inner {
+    flex-wrap: wrap;
+    row-gap: 6px;
+  }
+
+  .nav {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .nav a {
+    flex: 1;
+    text-align: center;
+  }
+
+  .topo-ola {
+    display: none;
+  }
+
+  .marca-texto small {
+    display: none;
+  }
+
+  .login-card {
+    padding: 24px 20px;
+  }
+
+  .tela-404-caixa {
+    padding: 32px 22px;
+  }
+
+  .tela-desejos {
+    padding-top: 32px;
+  }
+
+  .desejo-excluir span {
+    display: none;
+  }
+}
